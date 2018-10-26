@@ -1,6 +1,8 @@
 <?php
 namespace app\index\controller;
 
+use \think\facade\Env;
+
 class Index
 {
     public function index()
@@ -12,4 +14,55 @@ class Index
     {
         return 'hello,' . $name;
     }
+
+    /**
+     * Notes: 获取环境变量
+     * User: reboot
+     * Date: 2018/10/23 0023
+     * Time: 15:39
+     */
+    public function getDataBase()
+    {
+        $username = Env::get('database.username');
+        $password = Env::get('database.password');
+
+        return 'username:' . $username . '; password:' . $password ;
+    }
+
+    /**
+     * Notes: 使用注解路由(在app.php中开启支持注解路由)
+     * User: reboot
+     * Date: 2018/10/23 0023
+     * Time: 16:05
+     * @param $name
+     * @return string
+     * @route('nba/:name')
+     */
+    public function getRoot($name) {
+        //应用根目录
+        dump(Env::get('root_path'));
+        //应用目录
+        dump(Env::get('app_path'));
+        //框架目录
+        dump(Env::get('think_path'));
+        //配置目录
+        dump(Env::get('config_path'));
+        //扩展目录
+        dump(Env::get('extend_path'));
+        //composer目录
+        dump(Env::get('vendor_path'));
+        //运行缓存目录
+        dump(Env::get('runtime_path'));
+        //路由目录
+        dump(Env::get('route_path'));
+        //当前模块目录
+        dump(Env::get('module_path'));
+
+        return 'hello, ' . $name;
+    }
+
+
+
+
+
 }
