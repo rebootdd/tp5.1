@@ -2,6 +2,8 @@
 namespace app\index\controller;
 
 use \think\facade\Env;
+use \domain\User;
+use \my\NotSysDefineClass;
 
 class Index
 {
@@ -39,30 +41,54 @@ class Index
      * @route('nba/:name')
      */
     public function getRoot($name) {
+        print_r('<pre>');
         //应用根目录
-        dump(Env::get('root_path'));
+        print_r('应用根目录: ' . Env::get('root_path') . '<br>');
         //应用目录
-        dump(Env::get('app_path'));
+        print_r('应用目录: ' . Env::get('app_path') . '<br>');
         //框架目录
-        dump(Env::get('think_path'));
+        print_r('框架目录: ' . Env::get('think_path') . '<br>');
         //配置目录
-        dump(Env::get('config_path'));
+        print_r('配置目录: ' . Env::get('config_path') . '<br>');
         //扩展目录
-        dump(Env::get('extend_path'));
+        print_r('扩展目录: ' . Env::get('extend_path') . '<br>');
         //composer目录
-        dump(Env::get('vendor_path'));
+        print_r('composer目录: ' . Env::get('vendor_path') . '<br>');
         //运行缓存目录
-        dump(Env::get('runtime_path'));
+        print_r('运行缓存目录: ' . Env::get('runtime_path') . '<br>');
         //路由目录
-        dump(Env::get('route_path'));
+        print_r('路由目录: ' . Env::get('route_path') . '<br>');
         //当前模块目录
-        dump(Env::get('module_path'));
+        print_r('当前模块目录: ' . Env::get('module_path') . '<br>');
 
         return 'hello, ' . $name;
     }
 
+    /**
+     * Notes:   获取自定义extend目录下的扩展类
+     * User: reboot
+     * Date: 2018/10/29 0029
+     * Time: 14:26
+     * @route('userInfo')
+     */
+    public function testDefineSelfClass() {
+        $user = new User();
 
+        return $user->getUserInfo();
+    }
 
+    /**
+     * Notes:   获取自定义非系统默认extend下的扩展类
+     * User: reboot
+     * Date: 2018/10/29 0029
+     * Time: 14:37
+     * @route('self')
+     */
+    public function getDefineSelfClass() {
+        $notSysDefineClass = new NotSysDefineClass();
+
+        return $notSysDefineClass->test();
+    }
 
 
 }
