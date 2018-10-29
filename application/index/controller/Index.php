@@ -64,31 +64,4 @@ class Index
         return 'hello, ' . $name;
     }
 
-    /**
-     * Notes:   获取自定义extend目录下的扩展类
-     * User: reboot
-     * Date: 2018/10/29 0029
-     * Time: 14:26
-     * @route('userInfo')
-     */
-    public function testDefineSelfClass() {
-        $user = new User();
-
-        return $user->getUserInfo();
-    }
-
-    /**
-     * Notes:   获取自定义非系统默认extend下的扩展类
-     * User: reboot
-     * Date: 2018/10/29 0029
-     * Time: 14:37
-     * @route('self')
-     */
-    public function getDefineSelfClass() {
-        $notSysDefineClass = new NotSysDefineClass();
-
-        return $notSysDefineClass->test();
-    }
-
-
 }

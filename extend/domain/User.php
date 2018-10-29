@@ -11,6 +11,20 @@ namespace domain;
 
 class User
 {
+
+    public $userName;
+    public $userPassword;
+
+    /**
+     * 初始化属性
+     * User constructor.
+     */
+    public function __construct()
+    {
+        $this->userName = '王八';
+        $this->userPassword = '123456';
+    }
+
     /**
      * Notes: 获取用户信息
      * User: reboot
