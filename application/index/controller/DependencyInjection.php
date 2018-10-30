@@ -8,17 +8,13 @@
 
 namespace app\index\controller;
 
-use \domain\User;
-use \domain\Animal;
+use domain\User;
+use domain\Animal;
+use app\facade\Test;
+use think\facade;
 
 class DependencyInjection
 {
-
-    public function __construct()
-    {
-        //4.绑定置接口实现
-        bind('\domain\Animal','\domain\Dog');
-    }
 
     /**
      * Notes:   获取自定义extend目录下的扩展类
@@ -69,7 +65,7 @@ class DependencyInjection
      */
     public function operateBindContainer() {
         //1.绑定类标识
-        bind('user', '\domain\User');
+        bind('user', 'domain\User');
 
 //        object(domain\User)#43 (2) {
 //            ["userName"] => string(6) "王八"
@@ -113,8 +109,22 @@ class DependencyInjection
      * @route('ani')
      */
     public function getInstance(Animal $animal) {
-
+        return $animal->eat();
     }
 
+    /**
+     * Notes: 使用门面facade来静态调用方法
+     * User: reboot
+     * Date: 2018/10/30 0030
+     * Time: 11:33
+     * @route('test')
+     */
+    public function testFacade() {
+        //使用静态方法进行绑定
+//        return Test::hello();
 
+        //使用的时候动态绑定
+        Facade::bind('app\facade\Test', 'domain\Test');
+        return Test::hello();
+    }
 }

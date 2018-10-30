@@ -11,4 +11,5 @@
 
 // 应用容器绑定定义
 return [
+    "domain\Animal" => domain\Duck::class,
 ];
