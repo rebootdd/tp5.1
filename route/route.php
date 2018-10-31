@@ -18,6 +18,9 @@ Route::get('hello/:name', 'index/hello');
 //获取环境变量中的数据库配置
 Route::get('base', 'index/getDataBase');
 
+//Route::get('middle/test', 'middleWareTest/test')
+//    ->middleware('Check');
+
 return [
 
 ];
