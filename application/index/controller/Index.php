@@ -2,8 +2,6 @@
 namespace app\index\controller;
 
 use \think\facade\Env;
-use \domain\User;
-use \my\NotSysDefineClass;
 
 class Index
 {

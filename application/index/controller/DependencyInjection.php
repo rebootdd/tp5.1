@@ -101,7 +101,7 @@ class DependencyInjection
     }
 
     /**
-     * Notes:
+     * Notes: 绑定接口到实现类
      * User: reboot
      * Date: 2018/10/29 0029
      * Time: 17:47
