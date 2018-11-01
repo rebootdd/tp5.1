@@ -23,10 +23,11 @@ class Check
      */
     public function handle($request, \Closure $next)
     {
-        if($request->param('name') == 'think') {
+//        if($request->param('name') == 'think') {
+//            return redirect('/userInfo');
+//        }
 
-            return redirect('/userInfo');
-        }
+        $request->name = 'REBOOT';
 
         return $next($request);
 
