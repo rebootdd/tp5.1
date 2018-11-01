@@ -32,4 +32,11 @@ return [
     'taglib_begin' => '{',
     // 标签库标签结束标记
     'taglib_end'   => '}',
+
+    // 静态资源文件字符串替换
+    'tpl_replace_string' => [
+        '__CSS__' => '/static/css',
+        '__JS__' => '/static/js',
+        '__IMAGES__' => '/static/images',
+    ],
 ];
